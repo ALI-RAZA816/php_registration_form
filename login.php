@@ -13,28 +13,17 @@
         <div class="row d-flex justify-content-center align-items-center" style="height:100vh">
             <div class="col-md-4 signup">
                 <form action="">
-                    <h1>Sign Up</h1>
-                    <div>
-                        <label class="text-dark" for="firstname">Name:</label>
-                        <input type="text" id="name" name="fname" class="mb-3 form-control">
-                    </div>
+                    <h1>Login</h1>
                     <div>
                         <label class="text-dark" for="email">Email:</label>
-                        <input type="text" id="email" name="email" class="mb-3 form-control">
+                        <input type="text" id="email" name="lemail" class="mb-3 form-control">
                     </div>
                     <div>
                         <label class="text-dark" for="password">Password:</label>
-                        <input type="text" id="password" name="password" class="mb-3 form-control">
+                        <input type="text" id="password" name="lpassword" class="mb-3 form-control">
                     </div>
-                    <div>
-                        <label class="text-dark" for="role">Role:</label>
-                        <select class="form-select mb-3" id="role" name="role"  aria-label="Default select example">
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                        </select>
-                    </div>
-                    <input type="submit" name="submit" class="mt-2" value="Register">
-                    <span>Have an account? <a href="login.php">Login</a></span>
+                    <input type="submit" name="submit" class="mt-2" value="Login">
+                    <span>don't have an account? <a href="index.php">Register</a></span>
                 </form>
             </div>
         </div>
