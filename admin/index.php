@@ -13,16 +13,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                        include "config.php";
+                        $query = "SELECT * FROM users";
+                        $result = mysqli_query($conn, $query);
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                    ?>
                     <tr>
-                        <th class="text-center">1</th>
-                        <td class="text-center">Mark</td>
-                        <td class="text-center">abcdef@example.com</td>
-                        <td class="text-center">Admin</td>
+                        <th class="text-center"><?php echo $row['id'] ?></th>
+                        <td class="text-center"><?php echo $row['name'] ?></td>
+                        <td class="text-center"><?php echo $row['email'] ?></td>
+                        <td class="text-center"><?php echo $row['user_typ'] ?></td>
                         <td class="text-center">
-                            <a class="me-4" href="" style="color:#F13E93;cursor:pointer;"><i class="fa-solid fa-edit"></i></a>
-                            <a href="" style="color:#F13E93;cursor:pointer;"><i class="fa-solid fa-trash"></i></a>
+                            <a class="me-4" href="update-user.php?id=<?php echo $row['id'] ?>" style="color:#F13E93;cursor:pointer;"><i class="fa-solid fa-edit"></i></a>
+                            <a href="delete-user.php?id=<?php echo $row['id'] ?>" style="color:#F13E93;cursor:pointer;"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
+                    <?php 
+                          }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -31,13 +42,13 @@
         <div class="col d-flex justify-content-center">
             <nav>
                 <ul class="pagination mt-3">
-                    <li class="page-item"><a href="#" class="page-link">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link ">Previous</a></li>
+                    <li class="page-item"><a class="page-link " href="#">1</a></li>
                     <li class="page-item active">
-                    <a class="page-link" href="#" aria-current="page">2</a>
+                    <a class="page-link " href="#" aria-current="page">2</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <li class="page-item"><a class="page-link " href="#">3</a></li>
+                    <li class="page-item"><a class="page-link " href="#">Next</a></li>
                 </ul>
             </nav>
         </div>

@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    overflow-x: hidden !important;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F13E93;
+    padding: .8rem 0;
+    box-shadow:  0 0 20px rgba(51, 51, 51, .50);
+}
+
+.col h1{
+    color: #fff;
+    font-weight: 550;
+}
+
+button{
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    border: 1.5px solid #fff;
+    background:none;
+    cursor: pointer;
+    transition: .30s ease;
+    border-radius: 5px !important;
+    color: #fff;
+    font-weight: bold;
+}
+
+button:hover{
+    background: #fff;
+}
+button:hover a{
+    color: #F13E93 !important;
+}
+
+
+
+
+.signup{
+    border-radius: 10px;
+    padding:2rem;
+    box-shadow:  0 0 20px rgba(51, 51, 51, .20);
+    /* border: 1px solid #F13E93; */
+}
+
+form h1{
+    text-align: center;
+    text-transform: capitalize;
+    color: #F13E93;
+    font-weight:bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+form input:focus,
+form select:focus{
+    transition: .50s ease;
+    border-color: #F13E93 !important;
+    box-shadow: none !important;
+}
+
+
+form > input{
+    height: 40px;
+    width: 100%;
+    background-color: #F13E93;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow:  0 0 20px rgba(51, 51, 51, .30);
+}
+
+form > span{
+    margin-top: 1rem;
+    color: #333;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+form > span a{
+    text-decoration: none;
+    color: #F13E93;
+}
+
+.name{
+    font-size: 2.5rem;
+    color: #ff0909;
+    font-weight: bold;
+}
+
+.msg{
+    font-size: 2rem !important;
+}
