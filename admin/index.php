@@ -1,15 +1,21 @@
-<?php include "header.php" ?>
+<?php 
+    include "header.php";
+    session_start();
+    if($_SESSION['user_type'] != 'admin'){
+        header("Location: http://localhost/php_registration_form/admin/not-found.php");
+    }
+ ?>
 <div class="container">
     <div class="row" style="height:80vh;">
-        <div class="col">
+        <div class="col table-responsive">
             <table class="table table-secondary table-bordered mt-4">
                 <thead>
                     <tr>
-                        <th class="bg-danger text-center text-white">Sr. No</th>
-                        <th class="bg-danger text-center text-white">Name</th>
-                        <th class="bg-danger text-center text-white">Email</th>
-                        <th class="bg-danger text-center text-white">Role</th>
-                        <th class="bg-danger text-center text-white">Edit/Delete</th>
+                        <th class="bg-danger text-center text-nowrap text-white">Sr. No</th>
+                        <th class="bg-danger text-center text-nowrap text-white">Name</th>
+                        <th class="bg-danger text-center text-nowrap text-white">Email</th>
+                        <th class="bg-danger text-center text-nowrap text-white">Role</th>
+                        <th class="bg-danger text-center text-nowrap text-white">Edit/Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,11 +36,11 @@
                             while($row = mysqli_fetch_assoc($result)){
                     ?>
                     <tr>
-                        <th class="text-center"><?php echo $row['id'] ?></th>
-                        <td class="text-center"><?php echo $row['name'] ?></td>
-                        <td class="text-center"><?php echo $row['email'] ?></td>
-                        <td class="text-center"><?php echo $row['user_typ'] ?></td>
-                        <td class="text-center">
+                        <th class="text-center text-nowrap"><?php echo $row['id'] ?></th>
+                        <td class="text-center text-nowrap"><?php echo $row['name'] ?></td>
+                        <td class="text-center text-nowrap"><?php echo $row['email'] ?></td>
+                        <td class="text-center text-nowrap"><?php echo $row['user_typ'] ?></td>
+                        <td class="text-center text-nowrap">
                             <a class="me-4" href="update-user.php?id=<?php echo $row['id'] ?>" style="color:#F13E93;cursor:pointer;"><i class="fa-solid fa-edit"></i></a>
                             <a href="delete-user.php?id=<?php echo $row['id'] ?>" style="color:#F13E93;cursor:pointer;"><i class="fa-solid fa-trash"></i></a>
                         </td>

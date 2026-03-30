@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container" style="height:100vh">
-        <div class="row d-flex justify-content-center align-items-center" style="height:100vh">
+        <div class="row px-2 d-flex justify-content-center align-items-center" style="height:100vh">
             <div class="col-md-4 signup">
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                     <h1>Login</h1>
