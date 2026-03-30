@@ -1,5 +1,4 @@
 <?php 
-
     include "config.php";
     $NAME = mysqli_real_escape_string($conn, $_POST['fname']); 
     $EMAIL = mysqli_real_escape_string($conn, $_POST['email']); 

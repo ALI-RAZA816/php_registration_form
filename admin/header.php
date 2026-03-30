@@ -1,11 +1,3 @@
-<?php 
-
-    session_start();
-    if($_SESSION['user_type'] != 'admin'){
-        header("Location: http://localhost/php_registration_form/admin/not-found.php");
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
