@@ -15,7 +15,16 @@
                 <tbody>
                     <?php 
                         include "config.php";
-                        $query = "SELECT * FROM users";
+                        $limit = 13;
+                        if(isset($_GET['page'])){
+                            $page = $_GET['page'];
+                        }else{
+                            $page = 1;
+                        }
+
+                        $offset = ($page - 1 ) * $limit;
+
+                        $query = "SELECT * FROM users LIMIT {$offset}, {$limit}";
                         $result = mysqli_query($conn, $query);
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
@@ -42,13 +51,29 @@
         <div class="col d-flex justify-content-center">
             <nav>
                 <ul class="pagination mt-3">
-                    <li class="page-item"><a href="#" class="page-link ">Previous</a></li>
-                    <li class="page-item"><a class="page-link " href="#">1</a></li>
-                    <li class="page-item active">
-                    <a class="page-link " href="#" aria-current="page">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link " href="#">3</a></li>
-                    <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    <?php 
+                        include "config.php";
+                        $query = "SELECT * FROM users";
+                        $result = mysqli_query($conn, $query);
+                        if($page > 1){
+                            echo " <li class='page-item'><a class='page-link' href='index.php?page=" . ($page - 1) . "'>Previous</a></li>";
+                        }
+                        if(mysqli_num_rows($result) > 0){
+                            $totalRecords = mysqli_num_rows($result);
+                            $totalPages = ceil($totalRecords/$limit);
+                            for($i=1; $i <= $totalPages; $i++){
+                                if($i == $page ){
+                                    $active = "active";
+                                }else{
+                                    $active = "";
+                                }
+                                echo "<li class='page-item $active'><a class='page-link' href='index.php?page=$i'>$i</a></li>";
+                            }
+                        }
+                        if($page < $totalPages){
+                            echo " <li class='page-item'><a class='page-link' href='index.php?page=" . ($page + 1) . "'>Next</a></li>";
+                        }
+                    ?>
                 </ul>
             </nav>
         </div>
